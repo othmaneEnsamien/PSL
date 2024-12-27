@@ -1,0 +1,32 @@
+services:
+  mysql:
+    container_name: mysql-PSL
+    image: mysql:latest
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Othmane-2001
+      MYSQL_DATABASE: PSL
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - spring-demo
+    restart: unless-stopped
+
+  mail-dev:
+    container_name: mail-dev-PSL
+    image: maildev/maildev
+    ports:
+      - 1080:1080
+      - 1025:1025
+
+networks:
+  spring-demo:
+    driver: bridge
+
+volumes:
+  mysql:
+    driver: local
+  keycloak:
+    driver: local

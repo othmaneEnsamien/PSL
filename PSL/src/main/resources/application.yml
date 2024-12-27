@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: PSL-API
+  datasource:
+    url: jdbc:mysql://localhost:3306/PSL
+    username: root
+    password: Othmane-2001
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+  mail:
+    host: localhost
+    port: 1025
+    username: othmane
+    password: othmane
+server:
+  servlet:
+    context-path: /api/v1/
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 8640000

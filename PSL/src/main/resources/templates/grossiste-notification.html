@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Notification de Problème</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+    .email-container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .email-header {
+        background-color: #dc3545;
+        color: #ffffff;
+        padding: 20px;
+        text-align: center;
+        font-size: 1.5em;
+    }
+    .email-body {
+        padding: 20px;
+    }
+    .email-footer {
+        background-color: #f1f1f1;
+        padding: 15px;
+        text-align: center;
+        font-size: 0.9em;
+        color: #555555;
+    }
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<div class="email-container">
+  <div class="email-header">
+    Problème Signalé
+  </div>
+  <div class="email-body">
+    <p>Bonjour <strong th:text="${grossisteName}">[Nom du Grossiste]</strong>,</p>
+    <p>Un problème a été signalé par le livreur <strong th:text="${livreurName}">[Nom du Livreur]</strong>.</p>
+    <p><strong>Commande ID:</strong> <span th:text="${commandeId}">[ID Commande]</span></p>
+    <p><strong>Type de Problème:</strong> <span th:text="${typeProbleme}">[Type de Problème]</span></p>
+    <p><strong>Description:</strong></p>
+    <p th:text="${description}">[Description du Problème]</p>
+    <p>Merci de traiter ce problème dès que possible.</p>
+  </div>
+  <div class="email-footer">
+    &copy; PSL, 2024. Tous droits réservés. <br />
+    <a href="mailto:support@psl.com">Contactez-nous</a>
+  </div>
+</div>
+</body>
+</html>
