@@ -17,10 +17,9 @@ public class ReportController {
 
     @GetMapping("/exporter")
     public String exportReport(@RequestParam LocalDate startDate, @RequestParam LocalDate endDate) {
-        // Générer le rapport
+
         Report report = rapportService.generateReport(startDate, endDate);
 
-        // Exporter le rapport en CSV
         return rapportService.exportToCSV(report);
     }
 }

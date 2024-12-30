@@ -20,6 +20,15 @@ services:
     ports:
       - 1080:1080
       - 1025:1025
+  bsl-api:
+    container_name: psl-api
+    image : psl/psl:1.0.0
+    ports:
+      - 8080:8080
+    networks:
+      - spring-demo
+    depends_on:
+      - mysql
 
 networks:
   spring-demo:
