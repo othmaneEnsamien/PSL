@@ -2,6 +2,7 @@ package com.PSL.PSL.commandes;
 
 
 import jakarta.mail.MessagingException;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class CommandeController {
 
     @PreAuthorize("hasRole('GROSSISTE')")
     @PostMapping("/create")
-    public CommandeResponseDTO createCommande(@RequestBody CommandeDTO commandeDTO) {
+    public CommandeResponseDTO createCommande(@RequestBody @Valid CommandeDTO commandeDTO) throws MessagingException {
         return commandeService.createCommande(commandeDTO);
     }
 

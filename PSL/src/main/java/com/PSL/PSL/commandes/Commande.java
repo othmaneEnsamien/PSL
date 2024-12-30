@@ -21,7 +21,7 @@ import java.util.List;
 public class Commande {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Integer id;
 
     @Column(name = "code_commande", nullable = false, unique = true)
